@@ -1,6 +1,6 @@
 package com.nubuteam.test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
@@ -11,5 +11,10 @@ public class FacturaTest {
 	public void deberiaCrearUnaNuevaFactura() {
 		Factura factura = new Factura();
 		assertNotNull(factura);
-	}	
+	}
+
+	@Test
+	public void deberiaValidarEstructuraXml(Factura factura) {
+		
+	}
 }

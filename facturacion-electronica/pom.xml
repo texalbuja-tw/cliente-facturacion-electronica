@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.nubuteam</groupId>
-	<artifactId>facturacion-electronica</artifactId>
+	<artifactId>taller-facturacion-electronica</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Taller de Facturación electrónica</name>
 	<description>Taller de Facturación electrónica</description>
@@ -13,6 +13,11 @@
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.xml</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<version>2.1</version>
 		</dependency>
 	</dependencies>
 </project>
