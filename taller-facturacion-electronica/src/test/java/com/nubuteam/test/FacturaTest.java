@@ -21,12 +21,4 @@ public class FacturaTest {
 		factura.setId("comprobante");
 		assertTrue(XmlUtil.validaQueUnaClaseCumplaConUnXSD(Factura.class, factura, "Factura.xsd"));
 	}
-
-	@Test
-	public void deberiaValidarFirmaDeXml() throws SAXException, IOException, JAXBException {
-		Factura factura = new Factura();
-		factura.setVersion("2.1.0");
-		factura.setId("comprobante");
-		assertTrue(XmlUtil.validaQueUnaClaseCumplaConUnXSD(Factura.class, factura, "/xsd/Factura_V_2_1_0.xsd"));
-	}
 }
