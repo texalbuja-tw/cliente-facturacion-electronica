@@ -11,8 +11,7 @@ import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(propOrder = { "ambiente", "tipoEmision", "razonSocial", "ruc", "claveAcceso", "codDoc", "estab", "ptoEmi",
-		"secuencial", "dirMatriz" })
+@XmlType(propOrder = { "ambiente", "tipoEmision", "razonSocial", "nombreComercial", "ruc", "claveAcceso", "codDoc", "estab", "ptoEmi", "secuencial", "dirMatriz" })
 @XmlSeeAlso({ InfoTributaria.class, InfoFactura.class, Detalle.class })
 public class InfoTributaria implements Serializable {
 
@@ -26,6 +25,9 @@ public class InfoTributaria implements Serializable {
 
 	@XmlElement
 	private String razonSocial;
+
+	@XmlElement
+	private String nombreComercial;
 
 	@XmlElement
 	private String ruc;
@@ -70,6 +72,14 @@ public class InfoTributaria implements Serializable {
 
 	public void setRazonSocial(String razonSocial) {
 		this.razonSocial = razonSocial;
+	}
+
+	public String getNombreComercial() {
+		return nombreComercial;
+	}
+
+	public void setNombreComercial(String nombreComercial) {
+		this.nombreComercial = nombreComercial;
 	}
 
 	public String getRuc() {

@@ -15,7 +15,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(propOrder = { "fechaEmision", "dirEstablecimiento", "obligadoContabilidad", "tipoIdentificacionComprador",
 		"razonSocialComprador", "identificacionComprador", "totalSinImpuestos", "totalDescuento", "totalConImpuestos",
-		"propina", "importeTotal", "moneda" })
+		"propina", "importeTotal", "moneda", "pagos" })
 @XmlSeeAlso({ TotalImpuesto.class })
 public class InfoFactura implements Serializable {
 
@@ -50,14 +50,20 @@ public class InfoFactura implements Serializable {
 
 	@XmlElement
 	private String propina;
+
 	@XmlElement
 	private String importeTotal;
+
 	@XmlElement
 	private String moneda;
 
 	@XmlElementWrapper(name = "totalConImpuestos")
 	@XmlElement(name = "totalImpuesto")
 	private List<TotalImpuesto> totalConImpuestos;
+
+	@XmlElementWrapper(name = "pagos")
+	@XmlElement(name = "pago")
+	private List<Pago> pagos;
 
 	public String getFechaEmision() {
 		return fechaEmision;
@@ -153,5 +159,13 @@ public class InfoFactura implements Serializable {
 
 	public void setMoneda(String moneda) {
 		this.moneda = moneda;
+	}
+
+	public List<Pago> getPagos() {
+		return pagos;
+	}
+
+	public void setPagos(List<Pago> pagos) {
+		this.pagos = pagos;
 	}
 }

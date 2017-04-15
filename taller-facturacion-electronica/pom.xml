@@ -19,5 +19,100 @@
 			<artifactId>jaxb-api</artifactId>
 			<version>2.1</version>
 		</dependency>
+		<dependency>
+			<groupId>batik</groupId>
+			<artifactId>batik-bridge</artifactId>
+			<version>1.6-1</version>
+		</dependency>
+		<dependency>
+			<groupId>batik</groupId>
+			<artifactId>batik-script</artifactId>
+			<version>1.6-1</version>
+		</dependency>
+		<!-- Las siguientes librerías no están en el repositorio maven, por lo 
+			que las importamos desde la carpeta lib -->
+		<dependency>
+			<groupId>MITyCLibAPI</groupId>
+			<artifactId>MITyCLibXADES</artifactId>
+			<version>1.1.7</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/lib/MITyCLibXADES-1.1.7.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>MITyCLibTSA</groupId>
+			<artifactId>MITyCLibTSA</artifactId>
+			<version>1.1.7</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/lib/MITyCLibTSA-1.1.7.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>MITyCLibTrust</groupId>
+			<artifactId>MITyCLibTrust</artifactId>
+			<version>1.1.7</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/lib/MITyCLibTrust-1.1.7.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>MITyCLibPolicy</groupId>
+			<artifactId>MITyCLibPolicy</artifactId>
+			<version>1.1.7</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/lib/MITyCLibPolicy-1.1.7.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>MITyCLibOCSP</groupId>
+			<artifactId>MITyCLibOCSP</artifactId>
+			<version>1.1.7</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/lib/MITyCLibOCSP-1.1.7.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>MITyCLibCrypt</groupId>
+			<artifactId>MITyCLibCrypt</artifactId>
+			<version>1.1.7</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/lib/MITyCLibCrypt-1.1.7.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>MITyCLibCert</groupId>
+			<artifactId>MITyCLibCert</artifactId>
+			<version>1.1.7</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/lib/MITyCLibCert-1.1.7.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>MITyCLibTSA</groupId>
+			<artifactId>MITyCLibTSA</artifactId>
+			<version>1.1.7</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/lib/MITyCLibTSA-1.1.7.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>MITyCLibAPI</groupId>
+			<artifactId>MITyCLibAPI</artifactId>
+			<version>1.1.7</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/lib/MITyCLibAPI-1.1.7.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>xmlsec</groupId>
+			<artifactId>xmlsec</artifactId>
+			<version>1.4.2-ADSI</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/lib/xmlsec-1.4.2-ADSI-1.1.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bctsp-jdk16</artifactId>
+			<version>1.45</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+
 	</dependencies>
 </project>

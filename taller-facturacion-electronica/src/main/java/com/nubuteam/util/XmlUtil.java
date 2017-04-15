@@ -18,30 +18,29 @@ import org.xml.sax.SAXParseException;
 
 public class XmlUtil {
 
-	@SuppressWarnings("rawtypes")
-	public static Boolean validaQueUnaClaseCumplaConUnXSD(Class xmlClass, Object object, String schemaFileName)
-			throws SAXException, IOException, JAXBException {
-		try {
-			JAXBContext jaxbContext = JAXBContext.newInstance(xmlClass);
-			Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
-			jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+	public static File convertirObjetoAXml(Class xmlClass, Object object)
+			throws SAXException, IOException, JAXBException, SAXParseException {
 
-			File xmlResult = File.createTempFile(xmlClass.getName(), ".xml");
-			jaxbMarshaller.marshal(object, xmlResult);
-			jaxbMarshaller.marshal(object, System.out);
+		JAXBContext jaxbContext = JAXBContext.newInstance(xmlClass);
+		Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+		jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
-			Source xmlFile = new StreamSource(xmlResult);
-			SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-			File schemaFile = new File("src/test/resources/" + schemaFileName);
-			Schema schema = schemaFactory.newSchema(schemaFile);
-			Validator validator = schema.newValidator();
-			validator.validate(xmlFile);
-		} catch (SAXParseException ex) {
-			ex.printStackTrace();
-			return false;
-		}
-		System.out.println("Es válido");
-		return true;
+		File xmlResult = File.createTempFile(xmlClass.getName(), ".xml");
+		jaxbMarshaller.marshal(object, xmlResult);
+		jaxbMarshaller.marshal(object, System.out);
+		return xmlResult;
+
 	}
 
+	public static Boolean validarQueUnXmlCumpleConXSD(File xmlFile, String xsdPath)
+			throws SAXException, IOException, JAXBException, SAXParseException {
+		Source xmlSource = new StreamSource(xmlFile);
+		SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+		File xsdFile = new File(xsdPath);
+		Schema schema = schemaFactory.newSchema(xsdFile);
+		Validator validator = schema.newValidator();
+		validator.validate(xmlSource);
+
+		return true;
+	}
 }
