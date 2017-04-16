@@ -10,7 +10,10 @@ import java.util.List;
 
 import org.junit.Test;
 
+import com.nubuteam.modelo.DetAdicional;
+import com.nubuteam.modelo.Detalle;
 import com.nubuteam.modelo.Factura;
+import com.nubuteam.modelo.Impuesto;
 import com.nubuteam.modelo.InfoFactura;
 import com.nubuteam.modelo.InfoTributaria;
 import com.nubuteam.modelo.Pago;
@@ -24,8 +27,7 @@ public class FacturaTest {
 	public void deberiaValidarFacturaFirmadaConEsquema() throws Exception {
 		File xmlFactura = XmlUtil.convertirObjetoAXml(Factura.class, crearFactura());
 		FirmaXadesBesUtil firmaXadesBesUtil = new FirmaXadesBesUtil();
-		File xmlFirmado = firmaXadesBesUtil.firmar(xmlFactura, "src/test/resources/p12/test.p12",
-				obtenerPasswordDesdeArchivoDeRecursos());
+		File xmlFirmado = firmaXadesBesUtil.firmar(xmlFactura, "src/test/resources/p12/test.p12",obtenerPasswordDesdeArchivoDeRecursos());
 		XmlUtil.validarQueUnXmlCumpleConXSD(xmlFirmado, "src/test/resources/xsd/Factura_V_2_1_0.xsd");
 
 	}
@@ -40,11 +42,43 @@ public class FacturaTest {
 		Factura factura = new Factura();
 		factura.setVersion("2.1.0");
 		factura.setId("comprobante");
-
 		factura.setInfoTributaria(crearInfoTributaria());
 		factura.setInfoFactura(crearInfoFactura());
+		factura.setDetalles(crearDetalles());
 
 		return factura;
+	}
+
+	private static List<Detalle> crearDetalles() {
+		List<Detalle> detalles = new ArrayList<Detalle>();
+		Detalle detalle = new Detalle();
+		detalle.setCodigoPrincipal("831520202");
+		detalle.setCodigoAuxiliar("1");
+		detalle.setDescripcion("APROVISIONAMIENTO DE SOFTWARE DE GESTIÓN ESTUDIANTIL");
+		detalle.setCantidad("357.00");
+		detalle.setPrecioUnitario("1.00");
+		detalle.setPrecioTotalSinImpuesto("357.00");
+		detalle.setDescuento("0.00");
+		detalles.add(detalle);
+
+		List<DetAdicional> detallesAdicionales = new ArrayList<DetAdicional>();
+		DetAdicional detAdicional = new DetAdicional();
+		detallesAdicionales.add(detAdicional);
+		detAdicional.setNombre("nombre");
+		detAdicional.setValor("valor");
+		detalle.setDetallesAdicionales(detallesAdicionales);
+
+		List<Impuesto> impuestos = new ArrayList<Impuesto>();
+		Impuesto impuesto = new Impuesto();
+		impuestos.add(impuesto);
+		impuesto.setCodigo("2");
+		impuesto.setCodigoPorcentaje("0");
+		impuesto.setTarifa("49.50");
+		impuesto.setBaseImponible("357.00");
+		impuesto.setValor("40.30");
+		detalle.setImpuestos(impuestos);
+
+		return detalles;
 	}
 
 	public static InfoFactura crearInfoFactura() {
@@ -61,7 +95,6 @@ public class FacturaTest {
 		infoFactura.setImporteTotal("406.98");
 		infoFactura.setMoneda("DOLAR");
 		infoFactura.setPagos(crearPagos());
-
 		return infoFactura;
 	}
 

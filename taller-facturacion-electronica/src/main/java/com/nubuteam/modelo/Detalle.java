@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(propOrder = { "codigoPrincipal", "codigoAuxiliar", "descripcion", "cantidad", "precioUnitario", "descuento",
-		"precioTotalSinImpuesto", "impuestos" })
+		"precioTotalSinImpuesto", "detallesAdicionales", "impuestos" })
 @XmlSeeAlso({ Impuesto.class })
 
 public class Detalle implements Serializable {
@@ -45,6 +45,10 @@ public class Detalle implements Serializable {
 	@XmlElementWrapper(name = "impuestos")
 	@XmlElement(name = "impuesto")
 	private List<Impuesto> impuestos;
+
+	@XmlElementWrapper(name = "detallesAdicionales")
+	@XmlElement(name = "detAdicional")
+	private List<DetAdicional> detallesAdicionales;
 
 	public String getCodigoPrincipal() {
 		return codigoPrincipal;
@@ -108,5 +112,13 @@ public class Detalle implements Serializable {
 
 	public void setImpuestos(List<Impuesto> impuestos) {
 		this.impuestos = impuestos;
+	}
+
+	public List<DetAdicional> getDetallesAdicionales() {
+		return detallesAdicionales;
+	}
+
+	public void setDetallesAdicionales(List<DetAdicional> detallesAdicionales) {
+		this.detallesAdicionales = detallesAdicionales;
 	}
 }
