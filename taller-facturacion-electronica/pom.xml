@@ -81,13 +81,6 @@
 			<systemPath>${basedir}/lib/MITyCLibCert-1.1.7.jar</systemPath>
 		</dependency>
 		<dependency>
-			<groupId>MITyCLibTSA</groupId>
-			<artifactId>MITyCLibTSA</artifactId>
-			<version>1.1.7</version>
-			<scope>system</scope>
-			<systemPath>${basedir}/lib/MITyCLibTSA-1.1.7.jar</systemPath>
-		</dependency>
-		<dependency>
 			<groupId>MITyCLibAPI</groupId>
 			<artifactId>MITyCLibAPI</artifactId>
 			<version>1.1.7</version>
