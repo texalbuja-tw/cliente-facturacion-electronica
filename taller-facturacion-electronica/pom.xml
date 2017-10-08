@@ -1,11 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.nubuteam</groupId>
-	<artifactId>taller-facturacion-electronica</artifactId>
+	<groupId>ec.facturacion.electronica</groupId>
+	<artifactId>cliente-facturacion-electronica</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Taller de Facturación electrónica</name>
-	<description>Taller de Facturación electrónica</description>
+	<name>Cliente de Facturación electrónica</name>
+	<description>Cliente de Facturación electrónica</description>
 	<url>https://github.com/texalbuja/taller-facturacion-electronica</url>
 	<dependencies>
 		<dependency>
