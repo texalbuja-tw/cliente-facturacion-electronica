@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><factura id="comprobante" version="1.0.0">
+    <infoTributaria>
+        <ambiente>2</ambiente>
+        <tipoEmision>1</tipoEmision>
+        <razonSocial>SUQUILLO NAVARRETE ANDREA ESTEFANIA</razonSocial>
+        <ruc>1719761767001</ruc>
+        <claveAcceso>3011201601171976176700120011000000000089516263010</claveAcceso>
+        <codDoc>01</codDoc>
+        <estab>001</estab>
+        <ptoEmi>100</ptoEmi>
+        <secuencial>000000008</secuencial>
+        <dirMatriz>Calle: DUCHICELA Número: OE8-345 Intersección: SHIRYS </dirMatriz>
+    </infoTributaria>
+    <infoFactura>
+        <fechaEmision>30/11/2016</fechaEmision>
+        <dirEstablecimiento>Calle: DUCHICELA Número: OE8-345 Intersección: SHIRYS </dirEstablecimiento>
+        <obligadoContabilidad>NO</obligadoContabilidad>
+        <tipoIdentificacionComprador>04</tipoIdentificacionComprador>
+        <razonSocialComprador>JARDIN ESCUELA Y COLEGIO CARDENAL GONZALEZ ZUMARRAGA</razonSocialComprador>
+        <identificacionComprador>1792636957001</identificacionComprador>
+        <totalSinImpuestos>378.00</totalSinImpuestos>
+        <totalDescuento>0.00</totalDescuento>
+        <totalConImpuestos>
+            <totalImpuesto>
+                <codigo>2</codigo>
+                <codigoPorcentaje>3</codigoPorcentaje>
+                <baseImponible>378.00</baseImponible>
+                <valor>52.92</valor>
+            </totalImpuesto>
+        </totalConImpuestos>
+        <propina>0</propina>
+        <importeTotal>430.92</importeTotal>
+        <moneda>DOLAR</moneda>
+        <pagos>
+            <pago>
+                <formaPago>01</formaPago>
+                <total>430.92</total>
+            </pago>
+        </pagos>
+    </infoFactura>
+    <detalles>
+        <detalle>
+            <codigoPrincipal>831520202</codigoPrincipal>
+            <codigoAuxiliar>1</codigoAuxiliar>
+            <descripcion>APROVISIONAMIENTO DE SOFTWARE DE GESTIÓN ESTUDIANTIL</descripcion>
+            <cantidad>378.0</cantidad>
+            <precioUnitario>1</precioUnitario>
+            <descuento>0.00</descuento>
+            <precioTotalSinImpuesto>378.00</precioTotalSinImpuesto>
+            <impuestos>
+                <impuesto>
+                    <codigo>2</codigo>
+                    <codigoPorcentaje>3</codigoPorcentaje>
+                    <tarifa>14</tarifa>
+                    <baseImponible>378.00</baseImponible>
+                    <valor>52.92</valor>
+                </impuesto>
+            </impuestos>
+        </detalle>
+    </detalles>
+    <infoAdicional>
+        <campoAdicional nombre="Telefono">022606460</campoAdicional>
+        <campoAdicional nombre="Email">jtutasi@hotmail.com</campoAdicional>
+    </infoAdicional>
+<ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#" Id="xmldsig-d92fbae8-7692-41ef-968f-31d9c8060215"><ds:SignedInfo><ds:CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/><ds:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/><ds:Reference Id="xmldsig-d92fbae8-7692-41ef-968f-31d9c8060215-ref0" URI="#comprobante"><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><ds:DigestValue>YyrL5v4nZfyXPWKxmCDZsiupHa2Wa0KiwkiwBThoGOA=</ds:DigestValue></ds:Reference><ds:Reference Type="http://uri.etsi.org/01903#SignedProperties" URI="#xmldsig-d92fbae8-7692-41ef-968f-31d9c8060215-signedprops"><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><ds:DigestValue>tQKkZIgS+EGlroaOZOGQuuckO5ulBv95IXrGOk7YH2A=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue Id="xmldsig-d92fbae8-7692-41ef-968f-31d9c8060215-sigvalue">mw1dWyeg0fBLxpt8VnVT26nEjWesidQU+ezdVYXWy3JtfTzOUwK4LrjVDQB+CHCxaOquivU9G8oAwczxCxSzEkeuxAkNws02cZ/3v77LpETV3/zz8LuykBbE6IcNqDdAw5febawn+nZjttLzS0kDzUwaIYjo1IoRWCJpkclSZ5m4El/L9wfQdnARHUhf7NfH1DJKxmC3V8F4WZ0xiwMPaOpOMrk31YmBUOBr5HjGNQAlqBvfuDRXeHRF3yzpN1a0CjX8Jo99TmcOfMh/CpQEv+ns8DHjRWRgfG/AMC9AFEX2Y00N6SmSY+aCsDFrtD33F6mI7CF7OrqVAACsA7EFnA==</ds:SignatureValue><ds:KeyInfo><ds:X509Data><ds:X509Certificate>MIIJtjCCB56gAwIBAgIETkXojzANBgkqhkiG9w0BAQsFADCBoTELMAkGA1UEBhMCRUMxIjAgBgNVBAoTGUJBTkNPIENFTlRSQUwgREVMIEVDVUFET1IxNzA1BgNVBAsTLkVOVElEQUQgREUgQ0VSVElGSUNBQ0lPTiBERSBJTkZPUk1BQ0lPTi1FQ0lCQ0UxDjAMBgNVBAcTBVFVSVRPMSUwIwYDVQQDExxBQyBCQU5DTyBDRU5UUkFMIERFTCBFQ1VBRE9SMB4XDTE2MDIwMjE4NTMwM1oXDTE4MDIwMjE5MjMwM1owgbsxCzAJBgNVBAYTAkVDMSIwIAYDVQQKExlCQU5DTyBDRU5UUkFMIERFTCBFQ1VBRE9SMTcwNQYDVQQLEy5FTlRJREFEIERFIENFUlRJRklDQUNJT04gREUgSU5GT1JNQUNJT04tRUNJQkNFMQ4wDAYDVQQHEwVRVUlUTzE/MBEGA1UEBRMKMDAwMDE0NjI0MDAqBgNVBAMTI0FORFJFQSBFU1RFRkFOSUEgU1VRVUlMTE8gTkFWQVJSRVRFMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA+FKWPwwcoNMskkue+LA73VQmxTPwxA3hmdUNPBEn01Gnhx3BQ3aS2wDqgRHYuiHhNmBW4qmPJzvarZSU+/Fiyt1O4n86MZx6fkA3kzjUDx7CQCcRnrD7jdun0Aez1wtn1pduFLditEVrjFTsLXD5OkpKSOaXRiMSGQ1CFWkfYkxEQ1E6Uy+Yz+QamondqPs11tdaSh/CDv2g3lm9vmKaLu35awRTwg5nAJB723F3xmrCnar5DrRUSHztCW8dcJ9WkHG+vHGaJ+b+/yf5wRUPt7YXRRaPnoVF6u1syoNZo0RinaPJVbAbMQqIV6BYmLhCSa1CElhRU3z3Om8Srb69pwIDAQABo4IE2DCCBNQwCwYDVR0PBAQDAgeAMGYGA1UdIARfMF0wWwYLKwYBBAGCqDsCAQEwTDBKBggrBgEFBQcCARY+aHR0cDovL3d3dy5lY2kuYmNlLmVjL3BvbGl0aWNhLWNlcnRpZmljYWRvL3BlcnNvbmEtbmF0dXJhbC5wZGYwgZEGCCsGAQUFBwEBBIGEMIGBMD4GCCsGAQUFBzABhjJodHRwOi8vb2NzcC5lY2kuYmNlLmVjL2VqYmNhL3B1YmxpY3dlYi9zdGF0dXMvb2NzcDA/BggrBgEFBQcwAYYzaHR0cDovL29jc3AxLmVjaS5iY2UuZWMvZWpiY2EvcHVibGljd2ViL3N0YXR1cy9vY3NwMBoGCisGAQQBgqg7AwEEDBMKMTcxOTc2MTc2NzAgBgorBgEEAYKoOwMCBBITEEFORFJFQSBFU1RFRkFOSUEwGAYKKwYBBAGCqDsDAwQKEwhTVVFVSUxMTzAZBgorBgEEAYKoOwMEBAsTCU5BVkFSUkVURTAxBgorBgEEAYKoOwMHBCMTIUxMQU5PIEdSQU5ERSBEVUNISUNFTEEgWSBTSFlSSVMgMjAZBgorBgEEAYKoOwMIBAsTCTAyMjAyMTg2NDAVBgorBgEEAYKoOwMJBAcTBVF1aXRvMBcGCisGAQQBgqg7AwwECRMHRUNVQURPUjAdBgorBgEEAYKoOwMLBA8TDTE3MTk3NjE3NjcwMDEwIAYKKwYBBAGCqDsDMwQSExBTT0ZUV0FSRS1BUkNISVZPMCEGA1UdEQQaMBiBFmFuZHJlaXRhZ2VtaUBnbWFpbC5jb20wggHfBgNVHR8EggHWMIIB0jCCAc6gggHKoIIBxoaB1WxkYXA6Ly9iY2VxbGRhcHN1YnAxLmJjZS5lYy9jbj1DUkwyOTUsY249QUMlMjBCQU5DTyUyMENFTlRSQUwlMjBERUwlMjBFQ1VBRE9SLGw9UVVJVE8sb3U9RU5USURBRCUyMERFJTIwQ0VSVElGSUNBQ0lPTiUyMERFJTIwSU5GT1JNQUNJT04tRUNJQkNFLG89QkFOQ08lMjBDRU5UUkFMJTIwREVMJTIwRUNVQURPUixjPUVDP2NlcnRpZmljYXRlUmV2b2NhdGlvbkxpc3Q/YmFzZYY0aHR0cDovL3d3dy5lY2kuYmNlLmVjL0NSTC9lY2lfYmNlX2VjX2NybGZpbGVjb21iLmNybKSBtTCBsjELMAkGA1UEBhMCRUMxIjAgBgNVBAoTGUJBTkNPIENFTlRSQUwgREVMIEVDVUFET1IxNzA1BgNVBAsTLkVOVElEQUQgREUgQ0VSVElGSUNBQ0lPTiBERSBJTkZPUk1BQ0lPTi1FQ0lCQ0UxDjAMBgNVBAcTBVFVSVRPMSUwIwYDVQQDExxBQyBCQU5DTyBDRU5UUkFMIERFTCBFQ1VBRE9SMQ8wDQYDVQQDEwZDUkwyOTUwKwYDVR0QBCQwIoAPMjAxNjAyMDIxODUzMDNagQ8yMDE4MDIwMjE5MjMwM1owHwYDVR0jBBgwFoAUGPnw++YyHJlmOSrKi7JpfUknv84wHQYDVR0OBBYEFAkyx7kek9e372/zDWJ+iqEmwwyRMAkGA1UdEwQCMAAwGQYJKoZIhvZ9B0EABAwwChsEVjguMQMCBLAwDQYJKoZIhvcNAQELBQADggIBAElf6wLPsr1Jrc1AbgsjZi0PlRnZhmiL6iPd1IjwoCfj5TbJ3D6d+fCp30yx2upB5uVGKbJoNt1GBLmyrpvTt3Njl+Wu7RHi48CHsdvWu/yMtH3kiMEhPiNghRKgSq8iU+JJOzqXYIMid0DsSEAxDF0ZvAl0rdL+o3S2wQE5KtpJIadcE1Vy84EJFFoHsHWcjeEjaND5UZ3S5XuE4oT7w5ccOCF/mInEl5Hh5ItYAsqQMuDdGxPYrhVSqhjpo+dRlJGFv1UxNVqspBXq6FfvRBgQCaRkvzE93DDl+6Lspao++gpxWeEEPtg6gdDo4BNglRceUO+7oRrcYd08WiCW6iQDr1KJQaUURpWMWH4w75hHBvUG44tfCndB2Nfmym2nTwy11cSbs+hYocSc/5Xw8Zd26ru/e4dLib9F8v6jpJmiz5rApYtY9djD0jIHzrYaaANhMiZvv+2OPmQdelwYbe6i7sQpwptaJeuLn0aykd09o/q7cDiy+Y6u9RSPkXZPI6vn41Hc21zV39RKq+f0Z4ozEn7ZigpaOFBrho0+dq48W0E1L8EZnuhDBwOKFwBZS3ljSzj4CfGB0te+8V9oX6lkP8S1B1Lr1mmQRW9XDD7bpg6V6NdbowLYPgp+czR1z0t12H2sPblxqO+vldVSrqzVmdTsJGPpz2jIao3P5IUN</ds:X509Certificate></ds:X509Data></ds:KeyInfo><ds:Object><xades:QualifyingProperties xmlns:xades="http://uri.etsi.org/01903/v1.3.2#" xmlns:xades141="http://uri.etsi.org/01903/v1.4.1#" Target="#xmldsig-d92fbae8-7692-41ef-968f-31d9c8060215"><xades:SignedProperties Id="xmldsig-d92fbae8-7692-41ef-968f-31d9c8060215-signedprops"><xades:SignedSignatureProperties><xades:SigningTime>2016-11-30T13:59:48.138-05:00</xades:SigningTime><xades:SigningCertificate><xades:Cert><xades:CertDigest><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><ds:DigestValue>Yi4NXMcSVS+Am/8yFguLctO/O3AmWp4qsTk6qOBTedY=</ds:DigestValue></xades:CertDigest><xades:IssuerSerial><ds:X509IssuerName>CN=AC BANCO CENTRAL DEL ECUADOR,L=QUITO,OU=ENTIDAD DE CERTIFICACION DE INFORMACION-ECIBCE,O=BANCO CENTRAL DEL ECUADOR,C=EC</ds:X509IssuerName><ds:X509SerialNumber>1313204367</ds:X509SerialNumber></xades:IssuerSerial></xades:Cert></xades:SigningCertificate></xades:SignedSignatureProperties><xades:SignedDataObjectProperties><xades:DataObjectFormat ObjectReference="#xmldsig-d92fbae8-7692-41ef-968f-31d9c8060215-ref0"><xades:Description>FIRMA DIGITAL SRI</xades:Description><xades:MimeType>text/xml</xades:MimeType><xades:Encoding>UTF-8</xades:Encoding></xades:DataObjectFormat></xades:SignedDataObjectProperties></xades:SignedProperties></xades:QualifyingProperties></ds:Object></ds:Signature></factura>

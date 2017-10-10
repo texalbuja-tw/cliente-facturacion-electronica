@@ -27,7 +27,8 @@ public class FacturaTest {
 	public void deberiaValidarFacturaFirmadaConEsquema() throws Exception {
 		File xmlFactura = XmlUtil.convertirObjetoAXml(Factura.class, crearFactura());
 		FirmaXadesBesUtil firmaXadesBesUtil = new FirmaXadesBesUtil();
-		File xmlFirmado = firmaXadesBesUtil.firmar(xmlFactura, "src/test/resources/p12/test.p12",obtenerPasswordDesdeArchivoDeRecursos());
+		File xmlFirmado = firmaXadesBesUtil.firmar(xmlFactura, "src/test/resources/p12/test.p12",
+				obtenerPasswordDesdeArchivoDeRecursos());
 		XmlUtil.validarQueUnXmlCumpleConXSD(xmlFirmado, "src/test/resources/xsd/Factura_V_2_1_0.xsd");
 
 	}

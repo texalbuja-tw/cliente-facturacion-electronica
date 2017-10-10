@@ -55,8 +55,8 @@ public class FirmaXadesBesUtil {
 			throws CertificateException, IOException {
 		this.passwordArchivoP12 = passwordArchivo12;
 		this.pathArchivoP12 = pathArchivoP12;
-		pathXmlFirmado = xml.getPath().replace(".xml", "_signed.xml");
-		pathXml = xml.getPath();
+		this.pathXmlFirmado = xml.getPath().replace(".xml", "_signed.xml");
+		this.pathXml = xml.getPath();
 		execute();
 		return new File(pathXmlFirmado);
 	}
@@ -72,7 +72,7 @@ public class FirmaXadesBesUtil {
 		try {
 			certificate = (X509Certificate) keyStore.getCertificate(alias);
 			if (certificate == null) {
-				throw new IOException("No existe ningún certificado para firmar.");
+				throw new IOException("No existe ningun certificado para firmar.");
 			}
 		} catch (KeyStoreException e1) {
 			throw new IOException("Error: " + e1.getMessage());
