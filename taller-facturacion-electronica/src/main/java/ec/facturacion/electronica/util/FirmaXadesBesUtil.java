@@ -5,9 +5,10 @@
  */
 package ec.facturacion.electronica.util;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.security.KeyStore;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
@@ -46,22 +47,15 @@ import es.mityc.javasign.xml.refs.ObjectToSign;
 
 public class FirmaXadesBesUtil {
 
-	private String pathXmlFirmado;
-	private String pathXml;
 	private String pathArchivoP12;
 	private String passwordArchivoP12;
 
-	public File firmar(File xml, String pathArchivoP12, String passwordArchivo12)
-			throws CertificateException, IOException {
+	public FirmaXadesBesUtil(String pathArchivoP12, String passwordArchivo12) throws CertificateException, IOException {
 		this.passwordArchivoP12 = passwordArchivo12;
 		this.pathArchivoP12 = pathArchivoP12;
-		this.pathXmlFirmado = xml.getPath().replace(".xml", "_signed.xml");
-		this.pathXml = xml.getPath();
-		execute();
-		return new File(pathXmlFirmado);
 	}
 
-	private void execute() throws CertificateException, IOException {
+	public void firmarDocumento(InputStream is, OutputStream os) throws CertificateException, IOException {
 		KeyStore keyStore = getKeyStore();
 		if (keyStore == null) {
 			throw new IOException("No se pudo obtener almacen de firma.");
@@ -92,7 +86,7 @@ public class FirmaXadesBesUtil {
 		}
 
 		Provider provider = keyStore.getProvider();
-		DataToSign dataToSign = createDataToSign();
+		DataToSign dataToSign = createDataToSign(is);
 		FirmaXML firma = new FirmaXML();
 		Document docSigned = null;
 
@@ -102,10 +96,10 @@ public class FirmaXadesBesUtil {
 		} catch (Exception ex) {
 			throw new IOException("Error realizando la firma: " + ex.getMessage());
 		}
-		saveDocument(docSigned, pathXmlFirmado);
+		saveDocument(docSigned, os);
 	}
 
-	private DataToSign createDataToSign() {
+	private DataToSign createDataToSign(InputStream is) {
 		DataToSign dataToSign = new DataToSign();
 		dataToSign.setXadesFormat(EnumFormatoFirma.XAdES_BES);
 		dataToSign.setEsquema(XAdESSchemas.XAdES_132);
@@ -117,7 +111,7 @@ public class FirmaXadesBesUtil {
 
 		Document docToSign = null;
 		try {
-			docToSign = getDocument(pathXml);
+			docToSign = getDocument(is);
 		} catch (IOException ex) {
 			Logger.getLogger(FirmaXadesBesUtil.class.getName()).log(Level.SEVERE, null, ex);
 		}
@@ -126,15 +120,14 @@ public class FirmaXadesBesUtil {
 		return dataToSign;
 	}
 
-	private Document getDocument(String resource) throws IOException {
+	private Document getDocument(InputStream is) throws IOException {
 		Document doc = null;
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		dbf.setNamespaceAware(true);
-		File file = new File(resource);
 
 		try {
 			DocumentBuilder db = dbf.newDocumentBuilder();
-			doc = db.parse(file);
+			doc = db.parse(is);
 		} catch (ParserConfigurationException ex) {
 		} catch (SAXException ex) {
 		} catch (IOException ex) {
@@ -179,19 +172,22 @@ public class FirmaXadesBesUtil {
 		return alias;
 	}
 
-	private void saveDocument(Document document, String pathXml) throws IOException {
+	private void saveDocument(Document document, OutputStream outputStream) throws IOException {
 		try {
 			DOMSource source = new DOMSource(document);
-			StreamResult result = new StreamResult(new File(pathXml));
+			StreamResult result = new StreamResult(outputStream);
 
 			TransformerFactory transformerFactory = TransformerFactory.newInstance();
 
 			Transformer transformer = transformerFactory.newTransformer();
 			transformer.transform(source, result);
+			transformer.transform(source, new StreamResult(System.out));
 		} catch (TransformerConfigurationException e) {
 			throw new IOException("Error: " + e.getMessage());
 		} catch (TransformerException e) {
 			throw new IOException("Error: " + e.getMessage());
+		} finally {
+			outputStream.close();
 		}
 	}
 }

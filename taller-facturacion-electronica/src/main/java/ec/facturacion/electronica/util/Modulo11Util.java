@@ -8,7 +8,7 @@ package ec.facturacion.electronica.util;
  */
 public class Modulo11Util {
 
-	public static String obtenerDigitoVerificador(String cadena) {
+	public String obtenerDigitoVerificador(String cadena) {
 		int baseMultiplicador = 7;
 		int[] resultados = new int[cadena.length()];
 		int multiplicador = 2;

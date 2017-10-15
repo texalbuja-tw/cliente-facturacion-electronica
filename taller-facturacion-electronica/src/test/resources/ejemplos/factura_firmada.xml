@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<factura id="comprobante" version="1.1.0">
+	<infoTributaria>
+		<ambiente>2</ambiente>
+		<tipoEmision>1</tipoEmision>
+		<razonSocial>Corporacion Nacional de Telecomunicaciones CNT EP
+		</razonSocial>
+		<nombreComercial>CNT EP</nombreComercial>
+		<ruc>1768152560001</ruc>
+		<claveAcceso>0810201701176815256000121378880082782930827829311
+		</claveAcceso>
+		<codDoc>01</codDoc>
+		<estab>137</estab>
+		<ptoEmi>888</ptoEmi>
+		<secuencial>008278293</secuencial>
+		<dirMatriz>Veintimilla E4-66 y Av. Amazonas</dirMatriz>
+	</infoTributaria>
+	<infoFactura>
+		<fechaEmision>08/10/2017</fechaEmision>
+		<dirEstablecimiento>Av. Amazonas N36-49 y Corea</dirEstablecimiento>
+		<contribuyenteEspecial>1398</contribuyenteEspecial>
+		<obligadoContabilidad>SI</obligadoContabilidad>
+		<tipoIdentificacionComprador>05</tipoIdentificacionComprador>
+		<razonSocialComprador>SUQUILLO NAVARRETE ANDREA ESTEFANIA
+		</razonSocialComprador>
+		<identificacionComprador>1719761767</identificacionComprador>
+		<totalSinImpuestos>12.99</totalSinImpuestos>
+		<totalDescuento>0.00</totalDescuento>
+		<totalConImpuestos>
+			<totalImpuesto>
+				<codigo>3</codigo>
+				<codigoPorcentaje>3093</codigoPorcentaje>
+				<baseImponible>0.00</baseImponible>
+				<valor>0.00</valor>
+			</totalImpuesto>
+			<totalImpuesto>
+				<codigo>2</codigo>
+				<codigoPorcentaje>2</codigoPorcentaje>
+				<baseImponible>12.99</baseImponible>
+				<valor>1.56</valor>
+			</totalImpuesto>
+		</totalConImpuestos>
+		<propina>0.00</propina>
+		<importeTotal>14.55</importeTotal>
+		<moneda>DOLAR AMERICANO</moneda>
+		<pagos>
+			<pago>
+				<formaPago>20</formaPago>
+				<total>14.55</total>
+			</pago>
+		</pagos>
+	</infoFactura>
+	<detalles>
+		<detalle>
+			<codigoPrincipal>664</codigoPrincipal>
+			<codigoAuxiliar>CBM</codigoAuxiliar>
+			<descripcion>CARGO BASICO LTE * </descripcion>
+			<cantidad>1</cantidad>
+			<precioUnitario>12.99</precioUnitario>
+			<descuento>0.00</descuento>
+			<precioTotalSinImpuesto>12.99</precioTotalSinImpuesto>
+			<impuestos>
+				<impuesto>
+					<codigo>3</codigo>
+					<codigoPorcentaje>3093</codigoPorcentaje>
+					<tarifa>0</tarifa>
+					<baseImponible>0.00</baseImponible>
+					<valor>0.00</valor>
+				</impuesto>
+				<impuesto>
+					<codigo>2</codigo>
+					<codigoPorcentaje>2</codigoPorcentaje>
+					<tarifa>12</tarifa>
+					<baseImponible>12.99</baseImponible>
+					<valor>1.56</valor>
+				</impuesto>
+			</impuestos>
+		</detalle>
+	</detalles>
+	<infoAdicional>
+		<campoAdicional nombre="CONTRATO">3860195</campoAdicional>
+		<campoAdicional nombre="PERIODO DE CONSUMO">08-09-2017 a 07-10-2017
+		</campoAdicional>
+		<campoAdicional nombre="PAGUE ANTES DE">07-11-2017</campoAdicional>
+		<campoAdicional nombre="SALDO A FAVOR">0.00</campoAdicional>
+		<campoAdicional nombre="SALDO ANTERIOR">0.00</campoAdicional>
+		<campoAdicional nombre="TRASL DIFERIDO A CORRIENTE">0.00</campoAdicional>
+		<campoAdicional nombre="TOTAL A PAGAR">14.55</campoAdicional>
+		<campoAdicional nombre="PLAN">PLAN CONTROLADO DATOS +VOZ 3
+		</campoAdicional>
+		<campoAdicional nombre="FORMA DE PAGO">OTROS CON UTILIZACION DEL
+			SISTEMA FINANCIERO
+		</campoAdicional>
+		<campoAdicional nombre="DETALLE DE TARIFAS">FIJO CNT:0.04, FIJO OTROS:0.12,
+			MOVIL:0.12, ONNET:0.04, SMS OFFNET:0.06, SMS MOVIL:0.06, SMS
+			ONNET:0.05, MB ON DEMAND:0.0214
+		</campoAdicional>
+	</infoAdicional>
+	<ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+		xmlns:etsi="http://uri.etsi.org/01903/v1.3.2#" Id="Signature850803">
+		<ds:SignedInfo Id="Signature-SignedInfo606809">
+			<ds:CanonicalizationMethod
+				Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" />
+			<ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" />
+			<ds:Reference URI="#Signature850803-SignedProperties598800"
+				Id="SignedPropertiesID145743" Type="http://uri.etsi.org/01903#SignedProperties">
+				<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+				<ds:DigestValue>FuaA8DLqPaCwZvngxN6Obmzradg=</ds:DigestValue>
+			</ds:Reference>
+			<ds:Reference URI="#Certificate1280535">
+				<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+				<ds:DigestValue>ySoqpzZLihvZk41k+E3dYPBCY20=</ds:DigestValue>
+			</ds:Reference>
+			<ds:Reference URI="#comprobante" Id="Reference-ID-665306">
+				<ds:Transforms>
+					<ds:Transform
+						Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+				</ds:Transforms>
+				<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+				<ds:DigestValue>ti1oD2NtY3kNLSMC1PIv8a1Cob4=</ds:DigestValue>
+			</ds:Reference>
+		</ds:SignedInfo>
+		<ds:SignatureValue Id="SignatureValue672255">
+			kFxh6I9iKiMlFJeCxuLrdYVNQX33Vy0j741gAyU0OpxEZJkQ7vZ1SqJVfpy0KP3NtC6HP3vWtN7b
+			LH+4YLLqvK9KW2HYk23rVGjLOfi7ikTR5EfM5looyfJF9X4+sLycAD14RuPIP7SpwiSoPLJLxCIs
+			DBEjcFLkTnTawwvXjqUh+vEPsW97zvtoydYgfRDuYWNlWy6ufNEXVD6U+0ncQi8QgPmdaFsUa698
+			OiUgxzRDepX0LP5cFSWCyqn2OvXA1isZn7jJbzn5lg6YPuMTdFlgEKWR4UbDMCvFYO9sZbozKqnw
+			o5ToUtjTsocS7nlpclHInBpw2EZEBGj7itxvvA==
+		</ds:SignatureValue>
+		<ds:KeyInfo Id="Certificate1280535">
+			<ds:X509Data>
+				<ds:X509Certificate>
+					MIIKIjCCCAqgAwIBAgIETkc1NzANBgkqhkiG9w0BAQsFADCBoTELMAkGA1UEBhMCRUMxIjAgBgNV
+					BAoTGUJBTkNPIENFTlRSQUwgREVMIEVDVUFET1IxNzA1BgNVBAsTLkVOVElEQUQgREUgQ0VSVElG
+					SUNBQ0lPTiBERSBJTkZPUk1BQ0lPTi1FQ0lCQ0UxDjAMBgNVBAcTBVFVSVRPMSUwIwYDVQQDExxB
+					QyBCQU5DTyBDRU5UUkFMIERFTCBFQ1VBRE9SMB4XDTE2MDkyMjE0MDU0OVoXDTE4MDkyMjE0MzU0
+					OVowgbIxCzAJBgNVBAYTAkVDMSIwIAYDVQQKExlCQU5DTyBDRU5UUkFMIERFTCBFQ1VBRE9SMTcw
+					NQYDVQQLEy5FTlRJREFEIERFIENFUlRJRklDQUNJT04gREUgSU5GT1JNQUNJT04tRUNJQkNFMQ4w
+					DAYDVQQHEwVRVUlUTzE2MBEGA1UEBRMKMDAwMDE3ODE3ODAhBgNVBAMTGkpPUkdFIEJPTElWQVIg
+					Q0FTVFJPIFJFSU5BMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAx3tL/qS6ckThPKJQ
+					j3QQio1FvIMbQXGbbB+vVM+JDXBmQjXWSRopceJbgpIivlfWEQNKRCrnSSodk+RpxlnZw7xj5/8W
+					fr0sUBcl+GZP6sQ6fLYVwMg3xYOu6qVyFekupmkJPaQtI6dtblnQYU2FAK34bj3n3GokOHo4ohQG
+					ECRDhrOjwFDWxJB3D7M3hTt4nftLUy+IrDKv2JAuUWfaDV21mngYidknvfnW6AyRWPuygAZ/49Wz
+					JO8EJGtzKFJlArbPzvoKmWaxQCeeNNstp6SWi5Zaw0nL3OnNEdi8sfoVOqUZfFl8pSrWeCf87jTg
+					n+LIxkhYcLc838q4kUIUCQIDAQABo4IFTTCCBUkwCwYDVR0PBAQDAgeAMGcGA1UdIARgMF4wXAYL
+					KwYBBAGCqDsCAgEwTTBLBggrBgEFBQcCARY/aHR0cDovL3d3dy5lY2kuYmNlLmVjL3BvbGl0aWNh
+					LWNlcnRpZmljYWRvL3BlcnNvbmEtanVyaWRpY2EucGRmMIGRBggrBgEFBQcBAQSBhDCBgTA+Bggr
+					BgEFBQcwAYYyaHR0cDovL29jc3AuZWNpLmJjZS5lYy9lamJjYS9wdWJsaWN3ZWIvc3RhdHVzL29j
+					c3AwPwYIKwYBBQUHMAGGM2h0dHA6Ly9vY3NwMS5lY2kuYmNlLmVjL2VqYmNhL3B1YmxpY3dlYi9z
+					dGF0dXMvb2NzcDBCBgorBgEEAYKoOwMKBDQTMkNPUlBPUkFDSU9OIE5BQ0lPTkFMIERFIFRFTEVD
+					T01VTklDQUNJT05FUyAgQ05UIEVQMB0GCisGAQQBgqg7AwsEDxMNMTc2ODE1MjU2MDAwMTAaBgor
+					BgEEAYKoOwMBBAwTCjE3MTAyNDYwNDAwHQYKKwYBBAGCqDsDAgQPEw1KT1JHRSBCT0xJVkFSMBYG
+					CisGAQQBgqg7AwMECBMGQ0FTVFJPMBUGCisGAQQBgqg7AwQEBxMFUkVJTkEwLgYKKwYBBAGCqDsD
+					BQQgEx5KRUZFIERFIFBST0NFU0FNSUVOVE8gREUgREFUT1MwOQYKKwYBBAGCqDsDBwQrEylKT1JH
+					RSBEUk9NIFkgR0FTUEFSIERFIFZJTExBUlJPRUwgRVNRVUlOQTAZBgorBgEEAYKoOwMIBAsTCTAy
+					MzczMTcwMDAVBgorBgEEAYKoOwMJBAcTBVF1aXRvMBcGCisGAQQBgqg7AwwECRMHRUNVQURPUjAg
+					BgorBgEEAYKoOwMzBBITEFNPRlRXQVJFLUFSQ0hJVk8wIgYDVR0RBBswGYEXam9yZ2UuY2FzdHJv
+					QGNudC5nb2IuZWMwggHfBgNVHR8EggHWMIIB0jCCAc6gggHKoIIBxoaB1WxkYXA6Ly9iY2VxbGRh
+					cHN1YnAxLmJjZS5lYy9jbj1DUkwzNjMsY249QUMlMjBCQU5DTyUyMENFTlRSQUwlMjBERUwlMjBF
+					Q1VBRE9SLGw9UVVJVE8sb3U9RU5USURBRCUyMERFJTIwQ0VSVElGSUNBQ0lPTiUyMERFJTIwSU5G
+					T1JNQUNJT04tRUNJQkNFLG89QkFOQ08lMjBDRU5UUkFMJTIwREVMJTIwRUNVQURPUixjPUVDP2Nl
+					cnRpZmljYXRlUmV2b2NhdGlvbkxpc3Q/YmFzZYY0aHR0cDovL3d3dy5lY2kuYmNlLmVjL0NSTC9l
+					Y2lfYmNlX2VjX2NybGZpbGVjb21iLmNybKSBtTCBsjELMAkGA1UEBhMCRUMxIjAgBgNVBAoTGUJB
+					TkNPIENFTlRSQUwgREVMIEVDVUFET1IxNzA1BgNVBAsTLkVOVElEQUQgREUgQ0VSVElGSUNBQ0lP
+					TiBERSBJTkZPUk1BQ0lPTi1FQ0lCQ0UxDjAMBgNVBAcTBVFVSVRPMSUwIwYDVQQDExxBQyBCQU5D
+					TyBDRU5UUkFMIERFTCBFQ1VBRE9SMQ8wDQYDVQQDEwZDUkwzNjMwKwYDVR0QBCQwIoAPMjAxNjA5
+					MjIxNDA1NDlagQ8yMDE4MDkyMjE0MzU0OVowHwYDVR0jBBgwFoAUGPnw++YyHJlmOSrKi7JpfUkn
+					v84wHQYDVR0OBBYEFLgoXRFsbPHCAF+cGDR01jAFLu+QMAkGA1UdEwQCMAAwGQYJKoZIhvZ9B0EA
+					BAwwChsEVjguMQMCBLAwDQYJKoZIhvcNAQELBQADggIBAIFQUCHXVPwoRqdu9AeXOcSe4qLBT5uT
+					Cs5ITDDQEAW+jBhHvZ7wOrPneKrcyWDbrHFnC2/0/+mbPW6rRGW5lN/kPshJIsT/JLj8+yvncHSd
+					5cCjJ++EMi3slNqAMfn5e7GG1fW4/f7R1/cV917CITjn1lHKBay8aJFPeIOM+nY+uL6WDxyX2fzE
+					gRH9acJRW/MnZl7cwagPfXnRi2Ossz0y+oWENgTFAIPyVtk6f4Phib5ntAVDacOHCmfH2FOzSAp7
+					5Vd5LXb34KYDr6WzUwGuObjqFRdEdBdcBCImMG0suFz5UXGVxvjJ0/torAnR9qnmP8YUAf7ipMH3
+					GGM5R/rZaqVBb8abl44gahPMP/UqxYJ8bnYdtWGyXGoaoYY2lKEzKRKg0w6pmv/W3x9pXKuLstM+
+					Rig5oUdwU4e5ElntM9lClkZELE2ixvW6aPYGBwwzuItxn9PzwI31wKKI5/JFI8zu/I3BYMnim/Fw
+					lYjFy4rJuoe0jXjftprTnqf4BklAp7CeaQtK/xGrLLnbFmDuYHR+IbnVTls4PT01Mt700tXuazj6
+					1JELI17TLuaGs9/3YH4aEk+I/hPaMjqrgZXAypNDQ6bXE19BCBKGZtRR6DXlVc0t7cKfTOck8+Fd
+					u9EC9egq62sBU4iydZD3wWrDHNdlsJYQrshtucdySb+p
+				</ds:X509Certificate>
+			</ds:X509Data>
+			<ds:KeyValue>
+				<ds:RSAKeyValue>
+					<ds:Modulus>
+						x3tL/qS6ckThPKJQj3QQio1FvIMbQXGbbB+vVM+JDXBmQjXWSRopceJbgpIivlfWEQNKRCrnSSod
+						k+RpxlnZw7xj5/8Wfr0sUBcl+GZP6sQ6fLYVwMg3xYOu6qVyFekupmkJPaQtI6dtblnQYU2FAK34
+						bj3n3GokOHo4ohQGECRDhrOjwFDWxJB3D7M3hTt4nftLUy+IrDKv2JAuUWfaDV21mngYidknvfnW
+						6AyRWPuygAZ/49WzJO8EJGtzKFJlArbPzvoKmWaxQCeeNNstp6SWi5Zaw0nL3OnNEdi8sfoVOqUZ
+						fFl8pSrWeCf87jTgn+LIxkhYcLc838q4kUIUCQ==
+					</ds:Modulus>
+					<ds:Exponent>AQAB</ds:Exponent>
+				</ds:RSAKeyValue>
+			</ds:KeyValue>
+		</ds:KeyInfo>
+		<ds:Object Id="Signature850803-Object11124">
+			<etsi:QualifyingProperties Target="#Signature850803">
+				<etsi:SignedProperties Id="Signature850803-SignedProperties598800">
+					<etsi:SignedSignatureProperties>
+						<etsi:SigningTime>2017-10-10T11:57:34-05:00</etsi:SigningTime>
+						<etsi:SigningCertificate>
+							<etsi:Cert>
+								<etsi:CertDigest>
+									<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+									<ds:DigestValue>H6Gbgi97N2DvaLNj1TauVmCfoME=</ds:DigestValue>
+								</etsi:CertDigest>
+								<etsi:IssuerSerial>
+									<ds:X509IssuerName>CN=AC BANCO CENTRAL DEL
+										ECUADOR,L=QUITO,OU=ENTIDAD DE CERTIFICACION DE
+										INFORMACION-ECIBCE,O=BANCO CENTRAL DEL ECUADOR,C=EC</ds:X509IssuerName>
+									<ds:X509SerialNumber>1313289527</ds:X509SerialNumber>
+								</etsi:IssuerSerial>
+							</etsi:Cert>
+						</etsi:SigningCertificate>
+					</etsi:SignedSignatureProperties>
+					<etsi:SignedDataObjectProperties>
+						<etsi:DataObjectFormat ObjectReference="#Reference-ID-665306">
+							<etsi:Description>contenido del comprobante</etsi:Description>
+							<etsi:MimeType>text/xml</etsi:MimeType>
+						</etsi:DataObjectFormat>
+					</etsi:SignedDataObjectProperties>
+				</etsi:SignedProperties>
+			</etsi:QualifyingProperties>
+		</ds:Object>
+	</ds:Signature>
+</factura>

@@ -1,7 +1,9 @@
 package ec.facturacion.electronica.util;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 
 import javax.xml.XMLConstants;
 import javax.xml.bind.JAXBContext;
@@ -18,23 +20,21 @@ import org.xml.sax.SAXParseException;
 
 public class XmlUtil {
 
-	public static File convertirObjetoAXml(Class xmlClass, Object object)
+	public static ByteArrayOutputStream convertirObjetoAXml(Class xmlClass, Object object)
 			throws SAXException, IOException, JAXBException, SAXParseException {
 
 		JAXBContext jaxbContext = JAXBContext.newInstance(xmlClass);
 		Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
 		jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-
-		File xmlResult = File.createTempFile(xmlClass.getName(), ".xml");
-		jaxbMarshaller.marshal(object, xmlResult);
-		jaxbMarshaller.marshal(object, System.out);
-		return xmlResult;
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		jaxbMarshaller.marshal(object, baos);
+		return baos;
 
 	}
 
-	public static Boolean validarQueUnXmlCumpleConXSD(File xmlFile, String xsdPath)
+	public static Boolean validarQueUnXmlCumpleConXSD(InputStream xmlInpuStream, String xsdPath)
 			throws SAXException, IOException, JAXBException, SAXParseException {
-		Source xmlSource = new StreamSource(xmlFile);
+		Source xmlSource = new StreamSource(xmlInpuStream);
 		SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
 		File xsdFile = new File(xsdPath);
 		Schema schema = schemaFactory.newSchema(xsdFile);

@@ -1,14 +1,22 @@
 package ec.facturacion.electronica.test;
 
-import java.io.File;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.security.cert.CertificateException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
+import javax.xml.bind.JAXBException;
+
 import org.junit.Test;
+import org.xml.sax.SAXException;
+import org.xml.sax.SAXParseException;
 
 import ec.facturacion.electronica.enumeraciones.AmbienteEnum;
 import ec.facturacion.electronica.enumeraciones.CodigoImpuestoEnum;
@@ -17,6 +25,7 @@ import ec.facturacion.electronica.enumeraciones.FormaPagoEnum;
 import ec.facturacion.electronica.enumeraciones.MonedaEnum;
 import ec.facturacion.electronica.enumeraciones.ObligadoContabilidadEnum;
 import ec.facturacion.electronica.enumeraciones.TarifaEnum;
+import ec.facturacion.electronica.enumeraciones.TipoComprobanteEnum;
 import ec.facturacion.electronica.enumeraciones.TipoEmisionEnum;
 import ec.facturacion.electronica.enumeraciones.TipoIdentificacionCompradorEnum;
 import ec.facturacion.electronica.modelo.DetAdicional;
@@ -34,12 +43,26 @@ public class FacturaTest {
 
 	@Test
 	public void deberiaValidarFacturaFirmadaConEsquema() throws Exception {
-		File xmlFactura = XmlUtil.convertirObjetoAXml(Factura.class, crearFactura());
-		FirmaXadesBesUtil firmaXadesBesUtil = new FirmaXadesBesUtil();
-		File xmlFirmado = firmaXadesBesUtil.firmar(xmlFactura, "src/test/resources/p12/test.p12",
-				obtenerPasswordDesdeArchivoDeRecursos());
-		XmlUtil.validarQueUnXmlCumpleConXSD(xmlFirmado, "src/test/resources/xsd/Factura_V_2_1_0.xsd");
+		ByteArrayOutputStream baosFirmado = crearFacturaFirmada();
+		InputStream is = new ByteArrayInputStream(baosFirmado.toByteArray());
+		XmlUtil.validarQueUnXmlCumpleConXSD(is, "src/test/resources/xsd/Factura_V_2_1_0.xsd");
 
+	}
+
+	protected byte[] crearByteArrayFacturaFirmada()
+			throws SAXParseException, CertificateException, SAXException, IOException, JAXBException {
+		ByteArrayOutputStream baosFirmado = crearFacturaFirmada();
+		return baosFirmado.toByteArray();
+	}
+
+	private ByteArrayOutputStream crearFacturaFirmada()
+			throws SAXParseException, SAXException, IOException, JAXBException, CertificateException {
+		ByteArrayOutputStream baosFactura = XmlUtil.convertirObjetoAXml(Factura.class, crearFactura());
+		FirmaXadesBesUtil firmaXadesBesUtil = new FirmaXadesBesUtil("src/test/resources/p12/test.p12",
+				obtenerPasswordDesdeArchivoDeRecursos());
+		ByteArrayOutputStream baosFacturaFirmada = new ByteArrayOutputStream();
+		firmaXadesBesUtil.firmarDocumento(new ByteArrayInputStream(baosFactura.toByteArray()), baosFacturaFirmada);
+		return baosFactura;
 	}
 
 	public static String obtenerPasswordDesdeArchivoDeRecursos() throws IOException {
@@ -93,11 +116,11 @@ public class FacturaTest {
 
 	public static InfoFactura crearInfoFactura() {
 		InfoFactura infoFactura = new InfoFactura();
-		infoFactura.setFechaEmision("30/11/2016");
+		infoFactura.setFechaEmision("14/10/2017");
 		infoFactura.setDirEstablecimiento("Calle: DUCHICELA Número: OE8-345 Intersección: SHIRYS ");
 		infoFactura.setObligadoContabilidad(ObligadoContabilidadEnum.NO);
-		infoFactura.setTipoIdentificacionComprador(TipoIdentificacionCompradorEnum.CEDULA);
-		infoFactura.setRazonSocialComprador("COLEGIO PARTICULAR CRISTO DEL CONSUELO ");
+		infoFactura.setTipoIdentificacionComprador(TipoIdentificacionCompradorEnum.RUC);
+		infoFactura.setRazonSocialComprador("RAZON SOCIAL DEL COMPRADOR");
 		infoFactura.setIdentificacionComprador("1792186293001");
 		infoFactura.setTotalSinImpuestos("357.00");
 		infoFactura.setTotalDescuento("0.00");
@@ -133,16 +156,19 @@ public class FacturaTest {
 		InfoTributaria infoTributaria = new InfoTributaria();
 		infoTributaria.setAmbiente(AmbienteEnum.PRUEBAS);
 		infoTributaria.setTipoEmision(TipoEmisionEnum.NORMAL);
-		infoTributaria.setRazonSocial("SUQUILLO NAVARRETE ANDREA ESTEFANIA");
-		infoTributaria.setNombreComercial("SUQUILLO NAVARRETE ANDREA ESTEFANIA");
-		infoTributaria.setDirMatriz("SHYRIS Y DUCHICELA");
+		infoTributaria.setRazonSocial("RAZON SOCIAL");
+		infoTributaria.setNombreComercial("NOMBRE COMERCIAL");
+		infoTributaria.setDirMatriz("DIRECCIÓN MATRIZ");
 		infoTributaria.setRuc("1719761767001");
-		infoTributaria.setClaveAcceso("1234567890123456789012345678901234567890123465789");
 		infoTributaria.setCodDoc("01");
 		infoTributaria.setEstab("001");
 		infoTributaria.setPtoEmi("100");
 		infoTributaria.setSecuencial("000000007");
-		infoTributaria.setDirMatriz("Calle: DUCHICELA Número: OE8-345 Intersección: SHIRYS ");
+		Calendar cal = Calendar.getInstance();
+		cal.add(Calendar.DAY_OF_YEAR, -1);
+		infoTributaria.generarClaveAcceso(cal.getTime(), TipoComprobanteEnum.FACTURA, "123456789", "12345678");
+
+		infoTributaria.setDirMatriz("Calle: Dir. Matri Número: OE8-345 Intersección: Dir. Matriz");
 		return infoTributaria;
 	}
 }

@@ -9,11 +9,21 @@ public enum TipoEmisionEnum {
 	 * Emisión normal
 	 */
 	@XmlEnumValue("1")
-	NORMAL,
+	NORMAL("1"),
 
 	/**
 	 * Emisión por Indisponibilidad del Sistema
 	 */
 	@XmlEnumValue("2")
-	INDISPONIBILIDAD;
+	INDISPONIBILIDAD("2");
+
+	private String codigo;
+
+	private TipoEmisionEnum(String codigo) {
+		this.codigo = codigo;
+	}
+
+	public String getCodigo() {
+		return codigo;
+	}
 }
