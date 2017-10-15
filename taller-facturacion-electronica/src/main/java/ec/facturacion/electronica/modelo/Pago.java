@@ -6,29 +6,31 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
+import ec.facturacion.electronica.enumeraciones.FormaPagoEnum;
+
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(propOrder = { "formaPago", "total", "plazo", "unidadTiempo" })
 public class Pago {
-	
+
 	@XmlElement
-	private String formaPago;
-	
+	private FormaPagoEnum formaPago;
+
 	@XmlElement
 	private String total;
-	
+
 	@XmlElement
 	private String plazo;
 
 	@XmlElement
 	private String unidadTiempo;
 
-	public String getFormaPago() {
+	public FormaPagoEnum getFormaPago() {
 		return formaPago;
 	}
 
-	public void setFormaPago(String formaPago) {
-		this.formaPago = formaPago;
+	public void setFormaPago(FormaPagoEnum formaPagoEnum) {
+		this.formaPago = formaPagoEnum;
 	}
 
 	public String getTotal() {

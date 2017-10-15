@@ -2,7 +2,7 @@
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
 	xmlns:ds="http://www.w3.org/2000/09/xmldsig#" elementFormDefault="qualified">
 	<xsd:import namespace="http://www.w3.org/2000/09/xmldsig#"
-		schemaLocation="https://www.w3.org/TR/xmldsig-core/xmldsig-core-schema.xsd"/>
+		schemaLocation="xmldsig-core-schema.xsd"/>
 	<xsd:simpleType name="ambiente">
 		<xsd:annotation>
 			<xsd:documentation>Desarrollo o produccion depende de en cual ambiente se genere el comprobante.</xsd:documentation>

@@ -10,6 +10,15 @@ import java.util.List;
 
 import org.junit.Test;
 
+import ec.facturacion.electronica.enumeraciones.AmbienteEnum;
+import ec.facturacion.electronica.enumeraciones.CodigoImpuestoEnum;
+import ec.facturacion.electronica.enumeraciones.CodigoPorcentajeEnum;
+import ec.facturacion.electronica.enumeraciones.FormaPagoEnum;
+import ec.facturacion.electronica.enumeraciones.MonedaEnum;
+import ec.facturacion.electronica.enumeraciones.ObligadoContabilidadEnum;
+import ec.facturacion.electronica.enumeraciones.TarifaEnum;
+import ec.facturacion.electronica.enumeraciones.TipoEmisionEnum;
+import ec.facturacion.electronica.enumeraciones.TipoIdentificacionCompradorEnum;
 import ec.facturacion.electronica.modelo.DetAdicional;
 import ec.facturacion.electronica.modelo.Detalle;
 import ec.facturacion.electronica.modelo.Factura;
@@ -72,9 +81,9 @@ public class FacturaTest {
 		List<Impuesto> impuestos = new ArrayList<Impuesto>();
 		Impuesto impuesto = new Impuesto();
 		impuestos.add(impuesto);
-		impuesto.setCodigo("2");
-		impuesto.setCodigoPorcentaje("0");
-		impuesto.setTarifa("49.50");
+		impuesto.setCodigo(CodigoImpuestoEnum.IVA);
+		impuesto.setCodigoPorcentaje(CodigoPorcentajeEnum.IVA_0);
+		impuesto.setTarifa(TarifaEnum.IVA_0);
 		impuesto.setBaseImponible("357.00");
 		impuesto.setValor("40.30");
 		detalle.setImpuestos(impuestos);
@@ -86,15 +95,15 @@ public class FacturaTest {
 		InfoFactura infoFactura = new InfoFactura();
 		infoFactura.setFechaEmision("30/11/2016");
 		infoFactura.setDirEstablecimiento("Calle: DUCHICELA Número: OE8-345 Intersección: SHIRYS ");
-		infoFactura.setObligadoContabilidad("NO");
-		infoFactura.setTipoIdentificacionComprador("04");
+		infoFactura.setObligadoContabilidad(ObligadoContabilidadEnum.NO);
+		infoFactura.setTipoIdentificacionComprador(TipoIdentificacionCompradorEnum.CEDULA);
 		infoFactura.setRazonSocialComprador("COLEGIO PARTICULAR CRISTO DEL CONSUELO ");
 		infoFactura.setIdentificacionComprador("1792186293001");
 		infoFactura.setTotalSinImpuestos("357.00");
 		infoFactura.setTotalDescuento("0.00");
 		infoFactura.setTotalConImpuestos(crearTotalImpuestos());
 		infoFactura.setImporteTotal("406.98");
-		infoFactura.setMoneda("DOLAR");
+		infoFactura.setMoneda(MonedaEnum.DOLAR);
 		infoFactura.setPagos(crearPagos());
 		return infoFactura;
 	}
@@ -102,7 +111,7 @@ public class FacturaTest {
 	private static List<Pago> crearPagos() {
 		List<Pago> pagos = new ArrayList<Pago>();
 		Pago pago = new Pago();
-		pago.setFormaPago("01");
+		pago.setFormaPago(FormaPagoEnum.SIN_UTILIZACION_DEL_SISTEMA_FINANCIERO);
 		pago.setTotal("406.98");
 		pagos.add(pago);
 		return pagos;
@@ -111,9 +120,10 @@ public class FacturaTest {
 	public static List<TotalImpuesto> crearTotalImpuestos() {
 		List<TotalImpuesto> totalImpuestos = new ArrayList<TotalImpuesto>();
 		TotalImpuesto totalImpuesto = new TotalImpuesto();
-		totalImpuesto.setCodigo("2");
-		totalImpuesto.setCodigoPorcentaje("3");
-		totalImpuesto.setBaseImponible("357.00");
+		totalImpuesto.setCodigo(CodigoImpuestoEnum.IVA);
+		totalImpuesto.setCodigoPorcentaje(CodigoPorcentajeEnum.IVA_14);
+		totalImpuesto.setTarifa(TarifaEnum.IVA_0);
+		totalImpuesto.setBaseImponible("49.98");
 		totalImpuesto.setValor("49.98");
 		totalImpuestos.add(totalImpuesto);
 		return totalImpuestos;
@@ -121,8 +131,8 @@ public class FacturaTest {
 
 	public static InfoTributaria crearInfoTributaria() {
 		InfoTributaria infoTributaria = new InfoTributaria();
-		infoTributaria.setAmbiente("1");
-		infoTributaria.setTipoEmision("1");
+		infoTributaria.setAmbiente(AmbienteEnum.PRUEBAS);
+		infoTributaria.setTipoEmision(TipoEmisionEnum.NORMAL);
 		infoTributaria.setRazonSocial("SUQUILLO NAVARRETE ANDREA ESTEFANIA");
 		infoTributaria.setNombreComercial("SUQUILLO NAVARRETE ANDREA ESTEFANIA");
 		infoTributaria.setDirMatriz("SHYRIS Y DUCHICELA");

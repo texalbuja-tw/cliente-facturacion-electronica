@@ -11,6 +11,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
 
+import ec.facturacion.electronica.enumeraciones.MonedaEnum;
+import ec.facturacion.electronica.enumeraciones.ObligadoContabilidadEnum;
+import ec.facturacion.electronica.enumeraciones.TipoIdentificacionCompradorEnum;
+
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(propOrder = { "fechaEmision", "dirEstablecimiento", "obligadoContabilidad", "tipoIdentificacionComprador",
@@ -31,10 +35,10 @@ public class InfoFactura implements Serializable {
 	private String dirEstablecimiento;
 
 	@XmlElement
-	private String obligadoContabilidad;
+	private ObligadoContabilidadEnum obligadoContabilidad;
 
 	@XmlElement
-	private String tipoIdentificacionComprador;
+	private TipoIdentificacionCompradorEnum tipoIdentificacionComprador;
 
 	@XmlElement
 	private String razonSocialComprador;
@@ -55,7 +59,7 @@ public class InfoFactura implements Serializable {
 	private String importeTotal;
 
 	@XmlElement
-	private String moneda;
+	private MonedaEnum moneda;
 
 	@XmlElementWrapper(name = "totalConImpuestos")
 	@XmlElement(name = "totalImpuesto")
@@ -81,20 +85,20 @@ public class InfoFactura implements Serializable {
 		this.dirEstablecimiento = dirEstablecimiento;
 	}
 
-	public String getObligadoContabilidad() {
+	public ObligadoContabilidadEnum getObligadoContabilidad() {
 		return obligadoContabilidad;
 	}
 
-	public void setObligadoContabilidad(String obligadoContabilidad) {
+	public void setObligadoContabilidad(ObligadoContabilidadEnum obligadoContabilidad) {
 		this.obligadoContabilidad = obligadoContabilidad;
 	}
 
-	public String getTipoIdentificacionComprador() {
+	public TipoIdentificacionCompradorEnum getTipoIdentificacionComprador() {
 		return tipoIdentificacionComprador;
 	}
 
-	public void setTipoIdentificacionComprador(String tipoIdentificacionComprador) {
-		this.tipoIdentificacionComprador = tipoIdentificacionComprador;
+	public void setTipoIdentificacionComprador(TipoIdentificacionCompradorEnum cedula) {
+		this.tipoIdentificacionComprador = cedula;
 	}
 
 	public String getRazonSocialComprador() {
@@ -153,11 +157,11 @@ public class InfoFactura implements Serializable {
 		this.importeTotal = importeTotal;
 	}
 
-	public String getMoneda() {
+	public MonedaEnum getMoneda() {
 		return moneda;
 	}
 
-	public void setMoneda(String moneda) {
+	public void setMoneda(MonedaEnum moneda) {
 		this.moneda = moneda;
 	}
 

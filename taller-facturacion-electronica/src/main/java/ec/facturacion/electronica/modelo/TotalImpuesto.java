@@ -8,50 +8,57 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
+import ec.facturacion.electronica.enumeraciones.CodigoImpuestoEnum;
+import ec.facturacion.electronica.enumeraciones.CodigoPorcentajeEnum;
+import ec.facturacion.electronica.enumeraciones.TarifaEnum;
+
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(propOrder = { "codigo", "codigoPorcentaje", "tarifa", "baseImponible", "valor" })
+@XmlType(propOrder = { "codigo", "codigoPorcentaje", "descuentoAdicional", "baseImponible", "tarifa", "valor" })
 public class TotalImpuesto implements Serializable {
 
 	private static final long serialVersionUID = -138623113562583170L;
 
 	@XmlElement
-	private String codigo;
+	private CodigoImpuestoEnum codigo;
 
 	@XmlElement
-	private String codigoPorcentaje;
-
-	@XmlElement
-	private String tarifa;
+	private CodigoPorcentajeEnum codigoPorcentaje;
 
 	@XmlElement
 	private String baseImponible;
 
 	@XmlElement
+	private TarifaEnum tarifa;
+
+	@XmlElement
 	private String valor;
 
-	public String getCodigo() {
+	@XmlElement
+	private String descuentoAdicional;
+
+	public CodigoImpuestoEnum getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(String codigo) {
-		this.codigo = codigo;
+	public void setCodigo(CodigoImpuestoEnum codigoImpuestoEnum) {
+		this.codigo = codigoImpuestoEnum;
 	}
 
-	public String getCodigoPorcentaje() {
+	public CodigoPorcentajeEnum getCodigoPorcentaje() {
 		return codigoPorcentaje;
 	}
 
-	public void setCodigoPorcentaje(String codigoPorcentaje) {
+	public void setCodigoPorcentaje(CodigoPorcentajeEnum codigoPorcentaje) {
 		this.codigoPorcentaje = codigoPorcentaje;
 	}
 
-	public String getTarifa() {
+	public TarifaEnum getTarifa() {
 		return tarifa;
 	}
 
-	public void setTarifa(String tarifa) {
-		this.tarifa = tarifa;
+	public void setTarifa(TarifaEnum tarifaEnum) {
+		this.tarifa = tarifaEnum;
 	}
 
 	public String getBaseImponible() {
@@ -68,6 +75,10 @@ public class TotalImpuesto implements Serializable {
 
 	public void setValor(String valor) {
 		this.valor = valor;
+	}
+
+	public void setDescuentoAdicional(String descuentoAdicional) {
+		this.descuentoAdicional = descuentoAdicional;
 	}
 
 }

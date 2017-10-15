@@ -9,19 +9,23 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
 
+import ec.facturacion.electronica.enumeraciones.AmbienteEnum;
+import ec.facturacion.electronica.enumeraciones.TipoEmisionEnum;
+
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(propOrder = { "ambiente", "tipoEmision", "razonSocial", "nombreComercial", "ruc", "claveAcceso", "codDoc", "estab", "ptoEmi", "secuencial", "dirMatriz" })
+@XmlType(propOrder = { "ambiente", "tipoEmision", "razonSocial", "nombreComercial", "ruc", "claveAcceso", "codDoc",
+		"estab", "ptoEmi", "secuencial", "dirMatriz" })
 @XmlSeeAlso({ InfoTributaria.class, InfoFactura.class, Detalle.class })
 public class InfoTributaria implements Serializable {
 
 	private static final long serialVersionUID = -2944593528360945418L;
 
 	@XmlElement
-	private String ambiente;
+	private AmbienteEnum ambiente;
 
 	@XmlElement
-	private String tipoEmision;
+	private TipoEmisionEnum tipoEmision;
 
 	@XmlElement
 	private String razonSocial;
@@ -50,19 +54,19 @@ public class InfoTributaria implements Serializable {
 	@XmlElement
 	private String dirMatriz;
 
-	public String getAmbiente() {
+	public AmbienteEnum getAmbiente() {
 		return ambiente;
 	}
 
-	public void setAmbiente(String ambiente) {
+	public void setAmbiente(AmbienteEnum ambiente) {
 		this.ambiente = ambiente;
 	}
 
-	public String getTipoEmision() {
+	public TipoEmisionEnum getTipoEmision() {
 		return tipoEmision;
 	}
 
-	public void setTipoEmision(String tipoEmision) {
+	public void setTipoEmision(TipoEmisionEnum tipoEmision) {
 		this.tipoEmision = tipoEmision;
 	}
 
