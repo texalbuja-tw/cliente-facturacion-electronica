@@ -1,2 +1,2 @@
-  language: java
-mvn test -B
+language: java
+mvn test -B -f taller-facturacion-electronica/pom.xml
