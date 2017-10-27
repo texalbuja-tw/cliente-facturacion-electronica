@@ -1,5 +1,6 @@
 FROM jboss/wildfly
-RUN pwd
+RUN pwd \
+    && ls
 USER root
 
 RUN pwd \
