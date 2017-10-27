@@ -9,7 +9,6 @@ RUN pwd \
     && ln -s apache-maven-3.5.0  maven 
 RUN export M2_HOME=/opt/maven \
     && export PATH=${M2_HOME}/bin:${PATH} \
-    && chown -R jboss:0 ${M2_HOME} \
-    && chmod -R g+rw ${M2_HOME} \
-    && mvn -version \
-    && mvn clean install
+    && chmod -R g+rw ${M2_HOME}
+USER jboss
+RUN mvn -version
