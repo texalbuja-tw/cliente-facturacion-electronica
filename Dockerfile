@@ -10,6 +10,6 @@ RUN pwd \
     && chmod -R g+rw /opt/maven
 USER jboss
 RUN export M2_HOME=/opt/maven \
-    && export PATH=${M2_HOME}/bin:${PATH}
-    && mvn -version
+    && export PATH=${M2_HOME}/bin:${PATH} \
+    && mvn -version \
     && mvn clean install -B -f taller-facturacion-electronica/pom.xml
