@@ -8,21 +8,21 @@ public enum TipoComprobanteEnum {
 	FACTURA("01"),
 
 	/**
-	 * Nota de Crédito
+	 * Nota de Credito
 	 */
 	NOTA_DE_CREDITO("02"),
 
 	/**
-	 * Nota de Crédito
+	 * Nota de Credito
 	 */
 	NOTA_DE_DEBITO("05"),
 
 	/**
-	 * Nota de Crédito
+	 * Nota de Credito
 	 */
 	GUIA_DE_REMISION("06"),
 	/**
-	 * Nota de Crédito
+	 * Nota de Credito
 	 */
 	COMPROBANTE_DE_RETENCION("07");
 

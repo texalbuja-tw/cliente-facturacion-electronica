@@ -6,24 +6,24 @@ import javax.xml.bind.annotation.XmlEnumValue;
 @XmlEnum
 public enum FormaPagoEnum {
 	/**
-	 * Sin utilización del sistema de financiero
+	 * Sin utilizacion del sistema de financiero
 	 */
 	@XmlEnumValue("01")
 	SIN_UTILIZACION_DEL_SISTEMA_FINANCIERO,
 
 	/**
-	 * Compensación de deudas
+	 * Compensacion de deudas
 	 * 
 	 */
 	@XmlEnumValue("15")
 	COMPENSACION_DE_DEUDAS,
 	/**
-	 * Tarjeta de débito
+	 * Tarjeta de debito
 	 */
 	@XmlEnumValue("16")
 	TARJETA_DE_DEBITO,
 	/**
-	 * Dinero electrónico
+	 * Dinero electronico
 	 */
 	@XmlEnumValue("17")
 	DINERO_ELECTRONICO,
@@ -33,17 +33,17 @@ public enum FormaPagoEnum {
 	@XmlEnumValue("18")
 	TARJETA_PREPAGO,
 	/**
-	 * Tarjetas de crédito
+	 * Tarjetas de credito
 	 */
 	@XmlEnumValue("19")
 	TARJETA_DE_CREDITO,
 	/**
-	 * Otros con utilización del sistema Financiero
+	 * Otros con utilizacion del sistema Financiero
 	 */
 	@XmlEnumValue("20")
 	OTROS_CON_UTILIZACION_DEL_SISTEMA_FINANCIERO,
 	/**
-	 * Endoso de Títulos
+	 * Endoso de Titulos
 	 */
 	@XmlEnumValue("21")
 	ENDOSO_DE_TITULOS;

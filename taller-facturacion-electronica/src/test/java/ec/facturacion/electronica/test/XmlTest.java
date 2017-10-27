@@ -40,7 +40,7 @@ public class XmlTest {
 			ex.printStackTrace();
 			return false;
 		}
-		System.out.println("Es válido");
+		System.out.println("Es valido");
 		return true;
 	}
 }

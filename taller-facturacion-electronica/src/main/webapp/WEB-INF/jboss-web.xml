@@ -1,0 +1,3 @@
+<jboss-web>
+	<context-root>facturacion-electronica/v1</context-root>
+</jboss-web>

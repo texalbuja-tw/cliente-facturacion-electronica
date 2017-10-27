@@ -6,6 +6,9 @@ import javax.xml.namespace.QName;
 import javax.xml.ws.WebEndpoint;
 import javax.xml.ws.WebServiceClient;
 import javax.xml.ws.WebServiceFeature;
+
+import ec.facturacion.electronica.ws.recepcion.RecepcionComprobantesService;
+
 import javax.xml.ws.Service;
 
 /**
@@ -15,7 +18,7 @@ import javax.xml.ws.Service;
  * 
  */
 @WebServiceClient(name = "AutorizacionComprobantesService", 
-                  wsdlLocation = "file:/C:/Users/Eduardo/git/taller-facturacion-electronica/taller-facturacion-electronica/doc/AutorizacionComprobantes.wsdl",
+                  wsdlLocation = "META-INF/wsdl/AutorizacionComprobantes.wsdl",
                   targetNamespace = "http://ec.gob.sri.ws.autorizacion") 
 public class AutorizacionComprobantesService extends Service {
 
@@ -26,11 +29,12 @@ public class AutorizacionComprobantesService extends Service {
     static {
         URL url = null;
         try {
-            url = new URL("file:/C:/Users/Eduardo/git/taller-facturacion-electronica/taller-facturacion-electronica/doc/AutorizacionComprobantes.wsdl");
+        	URL baseUrl = AutorizacionComprobantesService.class.getClassLoader().getResource(".");
+			url = new URL(baseUrl, "META-INF/wsdl/AutorizacionComprobantes.wsdl");
         } catch (MalformedURLException e) {
             java.util.logging.Logger.getLogger(AutorizacionComprobantesService.class.getName())
                 .log(java.util.logging.Level.INFO, 
-                     "Can not initialize the default wsdl from {0}", "file:/C:/Users/Eduardo/git/taller-facturacion-electronica/taller-facturacion-electronica/doc/AutorizacionComprobantes.wsdl");
+                     "Can not initialize the default wsdl from {0}", "file:AutorizacionComprobantes.wsdl");
         }
         WSDL_LOCATION = url;
     }

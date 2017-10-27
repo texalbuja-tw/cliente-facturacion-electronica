@@ -8,13 +8,15 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.security.cert.CertificateException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 import javax.xml.bind.JAXBException;
 
-import org.junit.Test;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
@@ -41,7 +43,6 @@ import ec.facturacion.electronica.util.XmlUtil;
 
 public class FacturaTest {
 
-	@Test
 	public void deberiaValidarFacturaFirmadaConEsquema() throws Exception {
 		ByteArrayOutputStream baosFirmado = crearFacturaFirmada();
 		InputStream is = new ByteArrayInputStream(baosFirmado.toByteArray());
@@ -57,7 +58,7 @@ public class FacturaTest {
 
 	private ByteArrayOutputStream crearFacturaFirmada()
 			throws SAXParseException, SAXException, IOException, JAXBException, CertificateException {
-		ByteArrayOutputStream baosFactura = XmlUtil.convertirObjetoAXml(Factura.class, crearFactura());
+		ByteArrayOutputStream baosFactura = (new XmlUtil()).convertirObjetoAXml(Factura.class, crearFactura());
 		FirmaXadesBesUtil firmaXadesBesUtil = new FirmaXadesBesUtil("src/test/resources/p12/test.p12",
 				obtenerPasswordDesdeArchivoDeRecursos());
 		ByteArrayOutputStream baosFacturaFirmada = new ByteArrayOutputStream();
@@ -71,7 +72,7 @@ public class FacturaTest {
 		return lines.get(0);
 	}
 
-	public static Factura crearFactura() {
+	public Factura crearFactura() {
 		Factura factura = new Factura();
 		factura.setVersion("2.1.0");
 		factura.setId("comprobante");
@@ -82,15 +83,15 @@ public class FacturaTest {
 		return factura;
 	}
 
-	private static List<Detalle> crearDetalles() {
+	private List<Detalle> crearDetalles() {
 		List<Detalle> detalles = new ArrayList<Detalle>();
 		Detalle detalle = new Detalle();
 		detalle.setCodigoPrincipal("831520202");
 		detalle.setCodigoAuxiliar("1");
-		detalle.setDescripcion("APROVISIONAMIENTO DE SOFTWARE DE GESTIÓN ESTUDIANTIL");
-		detalle.setCantidad("357.00");
+		detalle.setDescripcion("APROVISIONAMIENTO DE SOFTWARE DE GESTION ESTUDIANTIL");
+		detalle.setCantidad("1.00");
 		detalle.setPrecioUnitario("1.00");
-		detalle.setPrecioTotalSinImpuesto("357.00");
+		detalle.setPrecioTotalSinImpuesto("1.00");
 		detalle.setDescuento("0.00");
 		detalles.add(detalle);
 
@@ -107,68 +108,72 @@ public class FacturaTest {
 		impuesto.setCodigo(CodigoImpuestoEnum.IVA);
 		impuesto.setCodigoPorcentaje(CodigoPorcentajeEnum.IVA_0);
 		impuesto.setTarifa(TarifaEnum.IVA_0);
-		impuesto.setBaseImponible("357.00");
-		impuesto.setValor("40.30");
+		impuesto.setBaseImponible("1.00");
+		impuesto.setValor("0.14");
 		detalle.setImpuestos(impuestos);
 
 		return detalles;
 	}
 
-	public static InfoFactura crearInfoFactura() {
+	public InfoFactura crearInfoFactura() {
 		InfoFactura infoFactura = new InfoFactura();
-		infoFactura.setFechaEmision("14/10/2017");
-		infoFactura.setDirEstablecimiento("Calle: DUCHICELA Número: OE8-345 Intersección: SHIRYS ");
+		infoFactura.setFechaEmision((new SimpleDateFormat("dd/MM/YYYY")).format(new Date()));
+		infoFactura.setDirEstablecimiento("Calle: DUCHICELA Numero: OE8-345 Interseccion: SHIRYS ");
 		infoFactura.setObligadoContabilidad(ObligadoContabilidadEnum.NO);
 		infoFactura.setTipoIdentificacionComprador(TipoIdentificacionCompradorEnum.RUC);
 		infoFactura.setRazonSocialComprador("RAZON SOCIAL DEL COMPRADOR");
 		infoFactura.setIdentificacionComprador("1792186293001");
-		infoFactura.setTotalSinImpuestos("357.00");
+		infoFactura.setTotalSinImpuestos("1.00");
 		infoFactura.setTotalDescuento("0.00");
 		infoFactura.setTotalConImpuestos(crearTotalImpuestos());
-		infoFactura.setImporteTotal("406.98");
+		infoFactura.setImporteTotal("1.14");
 		infoFactura.setMoneda(MonedaEnum.DOLAR);
 		infoFactura.setPagos(crearPagos());
 		return infoFactura;
 	}
 
-	private static List<Pago> crearPagos() {
+	private List<Pago> crearPagos() {
 		List<Pago> pagos = new ArrayList<Pago>();
 		Pago pago = new Pago();
 		pago.setFormaPago(FormaPagoEnum.SIN_UTILIZACION_DEL_SISTEMA_FINANCIERO);
-		pago.setTotal("406.98");
+		pago.setTotal("1.14");
 		pagos.add(pago);
 		return pagos;
 	}
 
-	public static List<TotalImpuesto> crearTotalImpuestos() {
+	public List<TotalImpuesto> crearTotalImpuestos() {
 		List<TotalImpuesto> totalImpuestos = new ArrayList<TotalImpuesto>();
 		TotalImpuesto totalImpuesto = new TotalImpuesto();
 		totalImpuesto.setCodigo(CodigoImpuestoEnum.IVA);
 		totalImpuesto.setCodigoPorcentaje(CodigoPorcentajeEnum.IVA_14);
 		totalImpuesto.setTarifa(TarifaEnum.IVA_0);
-		totalImpuesto.setBaseImponible("49.98");
-		totalImpuesto.setValor("49.98");
+		totalImpuesto.setBaseImponible("1.00");
+		totalImpuesto.setValor("0.14");
 		totalImpuestos.add(totalImpuesto);
 		return totalImpuestos;
 	}
 
-	public static InfoTributaria crearInfoTributaria() {
+	public InfoTributaria crearInfoTributaria() {
 		InfoTributaria infoTributaria = new InfoTributaria();
 		infoTributaria.setAmbiente(AmbienteEnum.PRUEBAS);
 		infoTributaria.setTipoEmision(TipoEmisionEnum.NORMAL);
-		infoTributaria.setRazonSocial("RAZON SOCIAL");
+		infoTributaria.setRazonSocial("ANDREA ESTEFANIA SUQUILLO NAVARRETE");
 		infoTributaria.setNombreComercial("NOMBRE COMERCIAL");
-		infoTributaria.setDirMatriz("DIRECCIÓN MATRIZ");
+		infoTributaria.setDirMatriz("DIRECCION MATRIZ");
 		infoTributaria.setRuc("1719761767001");
 		infoTributaria.setCodDoc("01");
 		infoTributaria.setEstab("001");
 		infoTributaria.setPtoEmi("100");
-		infoTributaria.setSecuencial("000000007");
+		Random rn = new Random();
+		int n = 100000001 - 999999999 + 1;
+		int i = rn.nextInt() % n;
+		int random = 100000000 + i;
+		infoTributaria.setSecuencial(String.valueOf(random));
 		Calendar cal = Calendar.getInstance();
-		cal.add(Calendar.DAY_OF_YEAR, -1);
-		infoTributaria.generarClaveAcceso(cal.getTime(), TipoComprobanteEnum.FACTURA, "123456789", "12345678");
 
-		infoTributaria.setDirMatriz("Calle: Dir. Matri Número: OE8-345 Intersección: Dir. Matriz");
+		infoTributaria.generarClaveAcceso(cal.getTime(), TipoComprobanteEnum.FACTURA, "12345678");
+
+		infoTributaria.setDirMatriz("Calle: Dir. Matri Numero: OE8-345 Interseccion: Dir. Matriz");
 		return infoTributaria;
 	}
 }

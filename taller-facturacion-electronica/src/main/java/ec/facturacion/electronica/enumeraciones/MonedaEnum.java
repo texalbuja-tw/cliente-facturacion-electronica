@@ -6,7 +6,7 @@ import javax.xml.bind.annotation.XmlEnumValue;
 @XmlEnum
 public enum MonedaEnum {
 	/**
-	 * Emisión normal
+	 * Emision normal
 	 */
 	@XmlEnumValue("DOLAR")
 	DOLAR;

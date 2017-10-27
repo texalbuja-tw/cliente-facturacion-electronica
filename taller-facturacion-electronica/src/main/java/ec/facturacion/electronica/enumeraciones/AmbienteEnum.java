@@ -12,7 +12,7 @@ public enum AmbienteEnum {
 	PRUEBAS("https://celcer.sri.gob.ec/comprobantes-electronicos-ws/RecepcionComprobantes?wsdl", "https://celcer.sri.gob.ec/comprobantes-electronicos-ws/AutorizacionComprobantes?wsdl", "1"),
 
 	/**
-	 * Ambiente de producción
+	 * Ambiente de produccion
 	 */
 	@XmlEnumValue("2")
 	PRODUCCION("https://cel.sri.gob.ec/comprobantes-electronicos-ws/RecepcionComprobantes?wsdl", "https://cel.sri.gob.ec/comprobantes-electronicos-ws/AutorizacionComprobantes?wsdl", "2");

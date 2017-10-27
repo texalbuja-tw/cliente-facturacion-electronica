@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><factura id="comprobante" version="1.0.0">
+<factura id="comprobante" version="1.0.0">
     <infoTributaria>
         <ambiente>2</ambiente>
         <tipoEmision>1</tipoEmision>

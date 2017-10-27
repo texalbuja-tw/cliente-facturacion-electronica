@@ -1,7 +1,7 @@
 package ec.facturacion.electronica.util;
 
 /**
- * Clase que implementa el algoritmo del módulo 11
+ * Clase que implementa el algoritmo del modulo 11
  * 
  * @author Tex
  *

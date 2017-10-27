@@ -6,13 +6,13 @@ import javax.xml.bind.annotation.XmlEnumValue;
 @XmlEnum
 public enum TipoEmisionEnum {
 	/**
-	 * Emisión normal
+	 * Emision normal
 	 */
 	@XmlEnumValue("1")
 	NORMAL("1"),
 
 	/**
-	 * Emisión por Indisponibilidad del Sistema
+	 * Emision por Indisponibilidad del Sistema
 	 */
 	@XmlEnumValue("2")
 	INDISPONIBILIDAD("2");

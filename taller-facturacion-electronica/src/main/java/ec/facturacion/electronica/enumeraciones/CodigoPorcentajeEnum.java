@@ -35,10 +35,10 @@ public enum CodigoPorcentajeEnum {
 	IVA_EXCENTO,
 
 	/**
-	 * 150% Productos del tabaco y sucedáneos del tabaco (abarcan los productos
+	 * 150% Productos del tabaco y sucedaneos del tabaco (abarcan los productos
 	 * preparados totalmente o en parte utilizando como materia prima hojas de
 	 * tabaco y destinados a ser fumados, chupados, inhalados, mascados o
-	 * utilizados como rapé)
+	 * utilizados como rape)
 	 */
 	@XmlEnumValue("3023")
 	ICE_3023,
@@ -56,7 +56,7 @@ public enum CodigoPorcentajeEnum {
 
 	/**
 	 * 300% Armas de fuego, armas deportivas y municiones excepto aquellas
-	 * adquiridas por la fuerza pública
+	 * adquiridas por la fuerza publica
 	 */
 	@XmlEnumValue("3630")
 	ICE_3630,
@@ -69,13 +69,13 @@ public enum CodigoPorcentajeEnum {
 	ICE_3640,
 
 	/**
-	 * 100% Cocinas,calefones y otros de uso doméstico a gas SRI
+	 * 100% Cocinas,calefones y otros de uso domestico a gas SRI
 	 */
 	@XmlEnumValue("3670")
 	ICE_3670,
 
 	/**
-	 * 100% Cocinas, calefones y otros de uso doméstico a gas SENAE
+	 * 100% Cocinas, calefones y otros de uso domestico a gas SENAE
 	 */
 	@XmlEnumValue("3770")
 	ICE_3770;

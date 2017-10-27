@@ -6,13 +6,13 @@ import javax.xml.bind.annotation.XmlEnumValue;
 @XmlEnum
 public enum ObligadoContabilidadEnum {
 	/**
-	 * Emisión normal
+	 * Emision normal
 	 */
 	@XmlEnumValue("SI")
 	SI,
 
 	/**
-	 * Emisión por Indisponibilidad del Sistema
+	 * Emision por Indisponibilidad del Sistema
 	 */
 	@XmlEnumValue("NO")
 	NO;

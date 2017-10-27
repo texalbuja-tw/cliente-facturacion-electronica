@@ -12,7 +12,7 @@ public enum TipoIdentificacionCompradorEnum {
 	RUC,
 
 	/**
-	 * Cédula
+	 * Cedula
 	 */
 	@XmlEnumValue("05")
 	CEDULA,
@@ -30,7 +30,7 @@ public enum TipoIdentificacionCompradorEnum {
 	CONSUMIDOR_FINAL,
 
 	/**
-	 * Identificación del exterior
+	 * Identificacion del exterior
 	 */
 	@XmlEnumValue("08")
 	IDENTIFICACION_DEL_EXTERIOR,

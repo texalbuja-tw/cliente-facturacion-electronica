@@ -15,6 +15,7 @@ import ec.facturacion.electronica.enumeraciones.AmbienteEnum;
 import ec.facturacion.electronica.enumeraciones.TipoComprobanteEnum;
 import ec.facturacion.electronica.enumeraciones.TipoEmisionEnum;
 import ec.facturacion.electronica.util.Modulo11Util;
+import sun.util.logging.resources.logging;
 
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -102,12 +103,8 @@ public class InfoTributaria implements Serializable {
 		return claveAcceso;
 	}
 
-	public void generarClaveAcceso(Date fechaEmision, TipoComprobanteEnum tipoComprobante, String numeroComprobante,
-			String codigoNumerico) {
+	public void generarClaveAcceso(Date fechaEmision, TipoComprobanteEnum tipoComprobante, String codigoNumerico) {
 		SimpleDateFormat sdf = new SimpleDateFormat("ddMMyyyy");
-		if (numeroComprobante.length() != 9) {
-			throw new IllegalArgumentException("Numero de comprobante debe tener 9 digitos");
-		}
 		if (codigoNumerico.length() != 8) {
 			throw new IllegalArgumentException("Codigo numerico debe tener 8 digitos");
 		}
@@ -126,8 +123,11 @@ public class InfoTributaria implements Serializable {
 		if (tipoEmision == null) {
 			throw new IllegalArgumentException("Tipo de Emision no asignado");
 		}
+		if (secuencial == null) {
+			throw new IllegalArgumentException("Secuencial no asignado");
+		}
 		String claveSinDigitoVerificador = sdf.format(fechaEmision) + tipoComprobante.getCodigo() + ruc
-				+ ambiente.getCodigo() + estab + ptoEmi + numeroComprobante + codigoNumerico + tipoEmision.getCodigo();
+				+ ambiente.getCodigo() + estab + ptoEmi + secuencial + codigoNumerico + tipoEmision.getCodigo();
 		Modulo11Util modulo11Util = new Modulo11Util();
 
 		String claveAcceso = claveSinDigitoVerificador
@@ -135,6 +135,7 @@ public class InfoTributaria implements Serializable {
 		if (claveAcceso.length() != 49) {
 			throw new IllegalArgumentException("Clave de acceso debe tener 49 digitos, actual: " + claveAcceso);
 		}
+		System.out.println("Clave de Acceso" + claveAcceso + "\n");
 		this.claveAcceso = claveAcceso;
 	}
 

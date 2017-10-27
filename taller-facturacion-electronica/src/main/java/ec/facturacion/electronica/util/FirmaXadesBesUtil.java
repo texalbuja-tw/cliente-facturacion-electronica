@@ -181,7 +181,6 @@ public class FirmaXadesBesUtil {
 
 			Transformer transformer = transformerFactory.newTransformer();
 			transformer.transform(source, result);
-			transformer.transform(source, new StreamResult(System.out));
 		} catch (TransformerConfigurationException e) {
 			throw new IOException("Error: " + e.getMessage());
 		} catch (TransformerException e) {
