@@ -1,2 +1,4 @@
 language: java
 script: mvn test -B -f taller-facturacion-electronica/pom.xml
+notifications:
+ slack: slack-texalbuja:mtdfWEgx5io1dxseDseGRN5E
